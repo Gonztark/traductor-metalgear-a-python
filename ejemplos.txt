@@ -1,0 +1,16 @@
+Bucle FOR
+
+ITEM i = 0;
+QUEST (i = 0; i < 5; i = i + 1;) {
+PRINT(i);
+}
+
+
+Bucle while
+
+ITEM count = 0;
+PATROL (count < 5) {
+    PRINT("Contador: ");
+    PRINT(count);
+    count = count + 1;
+}

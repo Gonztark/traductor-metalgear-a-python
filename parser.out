@@ -1,0 +1,1832 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    CALL
+    COMMA
+    COMMENT
+    DO
+    DOT
+    READ
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> program statement
+Rule 2     program -> statement
+Rule 3     statement -> expression SEMICOLON
+Rule 4     statement -> VAR ID ASSIGN expression SEMICOLON
+Rule 5     statement -> IF LPARENT expression RPARENT block
+Rule 6     statement -> WHILE LPARENT expression RPARENT block
+Rule 7     statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block
+Rule 8     statement -> RETURN expression SEMICOLON
+Rule 9     statement -> FUNCTION ID LPARENT RPARENT block
+Rule 10    block -> LBRACE statements RBRACE
+Rule 11    block -> LBRACE RBRACE
+Rule 12    statements -> statements statement
+Rule 13    statements -> statement
+Rule 14    expression -> expression PLUS expression
+Rule 15    expression -> expression MINUS expression
+Rule 16    expression -> expression TIMES expression
+Rule 17    expression -> expression DIVIDE expression
+Rule 18    expression -> MINUS expression
+Rule 19    expression -> LPARENT expression RPARENT
+Rule 20    expression -> NUMBER
+Rule 21    expression -> ID
+Rule 22    expression -> expression LT expression
+Rule 23    expression -> expression LTE expression
+Rule 24    expression -> expression GT expression
+Rule 25    expression -> expression GTE expression
+Rule 26    expression -> expression NE expression
+Rule 27    expression -> STRING
+Rule 28    statement -> PRINT LPARENT expression RPARENT SEMICOLON
+
+Terminals, with rules where they appear
+
+ASSIGN               : 4
+CALL                 : 
+COMMA                : 
+COMMENT              : 
+DIVIDE               : 17
+DO                   : 
+DOT                  : 
+FOR                  : 7
+FUNCTION             : 9
+GT                   : 24
+GTE                  : 25
+ID                   : 4 9 21
+IF                   : 5
+LBRACE               : 10 11
+LPARENT              : 5 6 7 9 19 28
+LT                   : 22
+LTE                  : 23
+MINUS                : 15 18
+NE                   : 26
+NUMBER               : 20
+PLUS                 : 14
+PRINT                : 28
+RBRACE               : 10 11
+READ                 : 
+RETURN               : 8
+RPARENT              : 5 6 7 9 19 28
+SEMICOLON            : 3 4 7 7 8 28
+STRING               : 27
+TIMES                : 16
+VAR                  : 4
+WHILE                : 6
+error                : 
+
+Nonterminals, with rules where they appear
+
+block                : 5 6 7 9
+expression           : 3 4 5 6 7 7 8 14 14 15 15 16 16 17 17 18 19 22 22 23 23 24 24 25 25 26 26 28
+program              : 1 0
+statement            : 1 2 7 12 13
+statements           : 10 12
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . program statement
+    (2) program -> . statement
+    (3) statement -> . expression SEMICOLON
+    (4) statement -> . VAR ID ASSIGN expression SEMICOLON
+    (5) statement -> . IF LPARENT expression RPARENT block
+    (6) statement -> . WHILE LPARENT expression RPARENT block
+    (7) statement -> . FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block
+    (8) statement -> . RETURN expression SEMICOLON
+    (9) statement -> . FUNCTION ID LPARENT RPARENT block
+    (28) statement -> . PRINT LPARENT expression RPARENT SEMICOLON
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    VAR             shift and go to state 4
+    IF              shift and go to state 6
+    WHILE           shift and go to state 8
+    FOR             shift and go to state 9
+    RETURN          shift and go to state 10
+    FUNCTION        shift and go to state 11
+    PRINT           shift and go to state 12
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    program                        shift and go to state 1
+    statement                      shift and go to state 2
+    expression                     shift and go to state 3
+
+state 1
+
+    (0) S' -> program .
+    (1) program -> program . statement
+    (3) statement -> . expression SEMICOLON
+    (4) statement -> . VAR ID ASSIGN expression SEMICOLON
+    (5) statement -> . IF LPARENT expression RPARENT block
+    (6) statement -> . WHILE LPARENT expression RPARENT block
+    (7) statement -> . FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block
+    (8) statement -> . RETURN expression SEMICOLON
+    (9) statement -> . FUNCTION ID LPARENT RPARENT block
+    (28) statement -> . PRINT LPARENT expression RPARENT SEMICOLON
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    VAR             shift and go to state 4
+    IF              shift and go to state 6
+    WHILE           shift and go to state 8
+    FOR             shift and go to state 9
+    RETURN          shift and go to state 10
+    FUNCTION        shift and go to state 11
+    PRINT           shift and go to state 12
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    statement                      shift and go to state 16
+    expression                     shift and go to state 3
+
+state 2
+
+    (2) program -> statement .
+
+    VAR             reduce using rule 2 (program -> statement .)
+    IF              reduce using rule 2 (program -> statement .)
+    WHILE           reduce using rule 2 (program -> statement .)
+    FOR             reduce using rule 2 (program -> statement .)
+    RETURN          reduce using rule 2 (program -> statement .)
+    FUNCTION        reduce using rule 2 (program -> statement .)
+    PRINT           reduce using rule 2 (program -> statement .)
+    MINUS           reduce using rule 2 (program -> statement .)
+    LPARENT         reduce using rule 2 (program -> statement .)
+    NUMBER          reduce using rule 2 (program -> statement .)
+    ID              reduce using rule 2 (program -> statement .)
+    STRING          reduce using rule 2 (program -> statement .)
+    $end            reduce using rule 2 (program -> statement .)
+
+
+state 3
+
+    (3) statement -> expression . SEMICOLON
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    SEMICOLON       shift and go to state 17
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 19
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+    LT              shift and go to state 22
+    LTE             shift and go to state 23
+    GT              shift and go to state 24
+    GTE             shift and go to state 25
+    NE              shift and go to state 26
+
+
+state 4
+
+    (4) statement -> VAR . ID ASSIGN expression SEMICOLON
+
+    ID              shift and go to state 27
+
+
+state 5
+
+    (21) expression -> ID .
+
+    SEMICOLON       reduce using rule 21 (expression -> ID .)
+    PLUS            reduce using rule 21 (expression -> ID .)
+    MINUS           reduce using rule 21 (expression -> ID .)
+    TIMES           reduce using rule 21 (expression -> ID .)
+    DIVIDE          reduce using rule 21 (expression -> ID .)
+    LT              reduce using rule 21 (expression -> ID .)
+    LTE             reduce using rule 21 (expression -> ID .)
+    GT              reduce using rule 21 (expression -> ID .)
+    GTE             reduce using rule 21 (expression -> ID .)
+    NE              reduce using rule 21 (expression -> ID .)
+    RPARENT         reduce using rule 21 (expression -> ID .)
+
+
+state 6
+
+    (5) statement -> IF . LPARENT expression RPARENT block
+
+    LPARENT         shift and go to state 28
+
+
+state 7
+
+    (19) expression -> LPARENT . expression RPARENT
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 29
+
+state 8
+
+    (6) statement -> WHILE . LPARENT expression RPARENT block
+
+    LPARENT         shift and go to state 30
+
+
+state 9
+
+    (7) statement -> FOR . LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block
+
+    LPARENT         shift and go to state 31
+
+
+state 10
+
+    (8) statement -> RETURN . expression SEMICOLON
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 32
+
+state 11
+
+    (9) statement -> FUNCTION . ID LPARENT RPARENT block
+
+    ID              shift and go to state 33
+
+
+state 12
+
+    (28) statement -> PRINT . LPARENT expression RPARENT SEMICOLON
+
+    LPARENT         shift and go to state 34
+
+
+state 13
+
+    (18) expression -> MINUS . expression
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 35
+
+state 14
+
+    (20) expression -> NUMBER .
+
+    SEMICOLON       reduce using rule 20 (expression -> NUMBER .)
+    PLUS            reduce using rule 20 (expression -> NUMBER .)
+    MINUS           reduce using rule 20 (expression -> NUMBER .)
+    TIMES           reduce using rule 20 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 20 (expression -> NUMBER .)
+    LT              reduce using rule 20 (expression -> NUMBER .)
+    LTE             reduce using rule 20 (expression -> NUMBER .)
+    GT              reduce using rule 20 (expression -> NUMBER .)
+    GTE             reduce using rule 20 (expression -> NUMBER .)
+    NE              reduce using rule 20 (expression -> NUMBER .)
+    RPARENT         reduce using rule 20 (expression -> NUMBER .)
+
+
+state 15
+
+    (27) expression -> STRING .
+
+    SEMICOLON       reduce using rule 27 (expression -> STRING .)
+    PLUS            reduce using rule 27 (expression -> STRING .)
+    MINUS           reduce using rule 27 (expression -> STRING .)
+    TIMES           reduce using rule 27 (expression -> STRING .)
+    DIVIDE          reduce using rule 27 (expression -> STRING .)
+    LT              reduce using rule 27 (expression -> STRING .)
+    LTE             reduce using rule 27 (expression -> STRING .)
+    GT              reduce using rule 27 (expression -> STRING .)
+    GTE             reduce using rule 27 (expression -> STRING .)
+    NE              reduce using rule 27 (expression -> STRING .)
+    RPARENT         reduce using rule 27 (expression -> STRING .)
+
+
+state 16
+
+    (1) program -> program statement .
+
+    VAR             reduce using rule 1 (program -> program statement .)
+    IF              reduce using rule 1 (program -> program statement .)
+    WHILE           reduce using rule 1 (program -> program statement .)
+    FOR             reduce using rule 1 (program -> program statement .)
+    RETURN          reduce using rule 1 (program -> program statement .)
+    FUNCTION        reduce using rule 1 (program -> program statement .)
+    PRINT           reduce using rule 1 (program -> program statement .)
+    MINUS           reduce using rule 1 (program -> program statement .)
+    LPARENT         reduce using rule 1 (program -> program statement .)
+    NUMBER          reduce using rule 1 (program -> program statement .)
+    ID              reduce using rule 1 (program -> program statement .)
+    STRING          reduce using rule 1 (program -> program statement .)
+    $end            reduce using rule 1 (program -> program statement .)
+
+
+state 17
+
+    (3) statement -> expression SEMICOLON .
+
+    VAR             reduce using rule 3 (statement -> expression SEMICOLON .)
+    IF              reduce using rule 3 (statement -> expression SEMICOLON .)
+    WHILE           reduce using rule 3 (statement -> expression SEMICOLON .)
+    FOR             reduce using rule 3 (statement -> expression SEMICOLON .)
+    RETURN          reduce using rule 3 (statement -> expression SEMICOLON .)
+    FUNCTION        reduce using rule 3 (statement -> expression SEMICOLON .)
+    PRINT           reduce using rule 3 (statement -> expression SEMICOLON .)
+    MINUS           reduce using rule 3 (statement -> expression SEMICOLON .)
+    LPARENT         reduce using rule 3 (statement -> expression SEMICOLON .)
+    NUMBER          reduce using rule 3 (statement -> expression SEMICOLON .)
+    ID              reduce using rule 3 (statement -> expression SEMICOLON .)
+    STRING          reduce using rule 3 (statement -> expression SEMICOLON .)
+    $end            reduce using rule 3 (statement -> expression SEMICOLON .)
+    SEMICOLON       reduce using rule 3 (statement -> expression SEMICOLON .)
+    RBRACE          reduce using rule 3 (statement -> expression SEMICOLON .)
+
+
+state 18
+
+    (14) expression -> expression PLUS . expression
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 36
+
+state 19
+
+    (15) expression -> expression MINUS . expression
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 37
+
+state 20
+
+    (16) expression -> expression TIMES . expression
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 38
+
+state 21
+
+    (17) expression -> expression DIVIDE . expression
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 39
+
+state 22
+
+    (22) expression -> expression LT . expression
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 40
+
+state 23
+
+    (23) expression -> expression LTE . expression
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 41
+
+state 24
+
+    (24) expression -> expression GT . expression
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 42
+
+state 25
+
+    (25) expression -> expression GTE . expression
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 43
+
+state 26
+
+    (26) expression -> expression NE . expression
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 44
+
+state 27
+
+    (4) statement -> VAR ID . ASSIGN expression SEMICOLON
+
+    ASSIGN          shift and go to state 45
+
+
+state 28
+
+    (5) statement -> IF LPARENT . expression RPARENT block
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 46
+
+state 29
+
+    (19) expression -> LPARENT expression . RPARENT
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    RPARENT         shift and go to state 47
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 19
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+    LT              shift and go to state 22
+    LTE             shift and go to state 23
+    GT              shift and go to state 24
+    GTE             shift and go to state 25
+    NE              shift and go to state 26
+
+
+state 30
+
+    (6) statement -> WHILE LPARENT . expression RPARENT block
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 48
+
+state 31
+
+    (7) statement -> FOR LPARENT . statement SEMICOLON expression SEMICOLON expression RPARENT block
+    (3) statement -> . expression SEMICOLON
+    (4) statement -> . VAR ID ASSIGN expression SEMICOLON
+    (5) statement -> . IF LPARENT expression RPARENT block
+    (6) statement -> . WHILE LPARENT expression RPARENT block
+    (7) statement -> . FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block
+    (8) statement -> . RETURN expression SEMICOLON
+    (9) statement -> . FUNCTION ID LPARENT RPARENT block
+    (28) statement -> . PRINT LPARENT expression RPARENT SEMICOLON
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    VAR             shift and go to state 4
+    IF              shift and go to state 6
+    WHILE           shift and go to state 8
+    FOR             shift and go to state 9
+    RETURN          shift and go to state 10
+    FUNCTION        shift and go to state 11
+    PRINT           shift and go to state 12
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    statement                      shift and go to state 49
+    expression                     shift and go to state 3
+
+state 32
+
+    (8) statement -> RETURN expression . SEMICOLON
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    SEMICOLON       shift and go to state 50
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 19
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+    LT              shift and go to state 22
+    LTE             shift and go to state 23
+    GT              shift and go to state 24
+    GTE             shift and go to state 25
+    NE              shift and go to state 26
+
+
+state 33
+
+    (9) statement -> FUNCTION ID . LPARENT RPARENT block
+
+    LPARENT         shift and go to state 51
+
+
+state 34
+
+    (28) statement -> PRINT LPARENT . expression RPARENT SEMICOLON
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 52
+
+state 35
+
+    (18) expression -> MINUS expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    SEMICOLON       reduce using rule 18 (expression -> MINUS expression .)
+    PLUS            reduce using rule 18 (expression -> MINUS expression .)
+    MINUS           reduce using rule 18 (expression -> MINUS expression .)
+    TIMES           reduce using rule 18 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 18 (expression -> MINUS expression .)
+    LT              reduce using rule 18 (expression -> MINUS expression .)
+    LTE             reduce using rule 18 (expression -> MINUS expression .)
+    GT              reduce using rule 18 (expression -> MINUS expression .)
+    GTE             reduce using rule 18 (expression -> MINUS expression .)
+    NE              reduce using rule 18 (expression -> MINUS expression .)
+    RPARENT         reduce using rule 18 (expression -> MINUS expression .)
+
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 19 ]
+  ! TIMES           [ shift and go to state 20 ]
+  ! DIVIDE          [ shift and go to state 21 ]
+  ! LT              [ shift and go to state 22 ]
+  ! LTE             [ shift and go to state 23 ]
+  ! GT              [ shift and go to state 24 ]
+  ! GTE             [ shift and go to state 25 ]
+  ! NE              [ shift and go to state 26 ]
+
+
+state 36
+
+    (14) expression -> expression PLUS expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    SEMICOLON       reduce using rule 14 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 14 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 14 (expression -> expression PLUS expression .)
+    RPARENT         reduce using rule 14 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+    LT              shift and go to state 22
+    LTE             shift and go to state 23
+    GT              shift and go to state 24
+    GTE             shift and go to state 25
+    NE              shift and go to state 26
+
+  ! TIMES           [ reduce using rule 14 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 14 (expression -> expression PLUS expression .) ]
+  ! LT              [ reduce using rule 14 (expression -> expression PLUS expression .) ]
+  ! LTE             [ reduce using rule 14 (expression -> expression PLUS expression .) ]
+  ! GT              [ reduce using rule 14 (expression -> expression PLUS expression .) ]
+  ! GTE             [ reduce using rule 14 (expression -> expression PLUS expression .) ]
+  ! NE              [ reduce using rule 14 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 19 ]
+
+
+state 37
+
+    (15) expression -> expression MINUS expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    SEMICOLON       reduce using rule 15 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 15 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 15 (expression -> expression MINUS expression .)
+    RPARENT         reduce using rule 15 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+    LT              shift and go to state 22
+    LTE             shift and go to state 23
+    GT              shift and go to state 24
+    GTE             shift and go to state 25
+    NE              shift and go to state 26
+
+  ! TIMES           [ reduce using rule 15 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 15 (expression -> expression MINUS expression .) ]
+  ! LT              [ reduce using rule 15 (expression -> expression MINUS expression .) ]
+  ! LTE             [ reduce using rule 15 (expression -> expression MINUS expression .) ]
+  ! GT              [ reduce using rule 15 (expression -> expression MINUS expression .) ]
+  ! GTE             [ reduce using rule 15 (expression -> expression MINUS expression .) ]
+  ! NE              [ reduce using rule 15 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 19 ]
+
+
+state 38
+
+    (16) expression -> expression TIMES expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    SEMICOLON       reduce using rule 16 (expression -> expression TIMES expression .)
+    PLUS            reduce using rule 16 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 16 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 16 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 16 (expression -> expression TIMES expression .)
+    RPARENT         reduce using rule 16 (expression -> expression TIMES expression .)
+    LT              shift and go to state 22
+    LTE             shift and go to state 23
+    GT              shift and go to state 24
+    GTE             shift and go to state 25
+    NE              shift and go to state 26
+
+  ! LT              [ reduce using rule 16 (expression -> expression TIMES expression .) ]
+  ! LTE             [ reduce using rule 16 (expression -> expression TIMES expression .) ]
+  ! GT              [ reduce using rule 16 (expression -> expression TIMES expression .) ]
+  ! GTE             [ reduce using rule 16 (expression -> expression TIMES expression .) ]
+  ! NE              [ reduce using rule 16 (expression -> expression TIMES expression .) ]
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 19 ]
+  ! TIMES           [ shift and go to state 20 ]
+  ! DIVIDE          [ shift and go to state 21 ]
+
+
+state 39
+
+    (17) expression -> expression DIVIDE expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    SEMICOLON       reduce using rule 17 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 17 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 17 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 17 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 17 (expression -> expression DIVIDE expression .)
+    RPARENT         reduce using rule 17 (expression -> expression DIVIDE expression .)
+    LT              shift and go to state 22
+    LTE             shift and go to state 23
+    GT              shift and go to state 24
+    GTE             shift and go to state 25
+    NE              shift and go to state 26
+
+  ! LT              [ reduce using rule 17 (expression -> expression DIVIDE expression .) ]
+  ! LTE             [ reduce using rule 17 (expression -> expression DIVIDE expression .) ]
+  ! GT              [ reduce using rule 17 (expression -> expression DIVIDE expression .) ]
+  ! GTE             [ reduce using rule 17 (expression -> expression DIVIDE expression .) ]
+  ! NE              [ reduce using rule 17 (expression -> expression DIVIDE expression .) ]
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 19 ]
+  ! TIMES           [ shift and go to state 20 ]
+  ! DIVIDE          [ shift and go to state 21 ]
+
+
+state 40
+
+    (22) expression -> expression LT expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    SEMICOLON       reduce using rule 22 (expression -> expression LT expression .)
+    PLUS            reduce using rule 22 (expression -> expression LT expression .)
+    MINUS           reduce using rule 22 (expression -> expression LT expression .)
+    TIMES           reduce using rule 22 (expression -> expression LT expression .)
+    DIVIDE          reduce using rule 22 (expression -> expression LT expression .)
+    LT              reduce using rule 22 (expression -> expression LT expression .)
+    LTE             reduce using rule 22 (expression -> expression LT expression .)
+    GT              reduce using rule 22 (expression -> expression LT expression .)
+    GTE             reduce using rule 22 (expression -> expression LT expression .)
+    NE              reduce using rule 22 (expression -> expression LT expression .)
+    RPARENT         reduce using rule 22 (expression -> expression LT expression .)
+
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 19 ]
+  ! TIMES           [ shift and go to state 20 ]
+  ! DIVIDE          [ shift and go to state 21 ]
+  ! LT              [ shift and go to state 22 ]
+  ! LTE             [ shift and go to state 23 ]
+  ! GT              [ shift and go to state 24 ]
+  ! GTE             [ shift and go to state 25 ]
+  ! NE              [ shift and go to state 26 ]
+
+
+state 41
+
+    (23) expression -> expression LTE expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    SEMICOLON       reduce using rule 23 (expression -> expression LTE expression .)
+    PLUS            reduce using rule 23 (expression -> expression LTE expression .)
+    MINUS           reduce using rule 23 (expression -> expression LTE expression .)
+    TIMES           reduce using rule 23 (expression -> expression LTE expression .)
+    DIVIDE          reduce using rule 23 (expression -> expression LTE expression .)
+    LT              reduce using rule 23 (expression -> expression LTE expression .)
+    LTE             reduce using rule 23 (expression -> expression LTE expression .)
+    GT              reduce using rule 23 (expression -> expression LTE expression .)
+    GTE             reduce using rule 23 (expression -> expression LTE expression .)
+    NE              reduce using rule 23 (expression -> expression LTE expression .)
+    RPARENT         reduce using rule 23 (expression -> expression LTE expression .)
+
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 19 ]
+  ! TIMES           [ shift and go to state 20 ]
+  ! DIVIDE          [ shift and go to state 21 ]
+  ! LT              [ shift and go to state 22 ]
+  ! LTE             [ shift and go to state 23 ]
+  ! GT              [ shift and go to state 24 ]
+  ! GTE             [ shift and go to state 25 ]
+  ! NE              [ shift and go to state 26 ]
+
+
+state 42
+
+    (24) expression -> expression GT expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    SEMICOLON       reduce using rule 24 (expression -> expression GT expression .)
+    PLUS            reduce using rule 24 (expression -> expression GT expression .)
+    MINUS           reduce using rule 24 (expression -> expression GT expression .)
+    TIMES           reduce using rule 24 (expression -> expression GT expression .)
+    DIVIDE          reduce using rule 24 (expression -> expression GT expression .)
+    LT              reduce using rule 24 (expression -> expression GT expression .)
+    LTE             reduce using rule 24 (expression -> expression GT expression .)
+    GT              reduce using rule 24 (expression -> expression GT expression .)
+    GTE             reduce using rule 24 (expression -> expression GT expression .)
+    NE              reduce using rule 24 (expression -> expression GT expression .)
+    RPARENT         reduce using rule 24 (expression -> expression GT expression .)
+
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 19 ]
+  ! TIMES           [ shift and go to state 20 ]
+  ! DIVIDE          [ shift and go to state 21 ]
+  ! LT              [ shift and go to state 22 ]
+  ! LTE             [ shift and go to state 23 ]
+  ! GT              [ shift and go to state 24 ]
+  ! GTE             [ shift and go to state 25 ]
+  ! NE              [ shift and go to state 26 ]
+
+
+state 43
+
+    (25) expression -> expression GTE expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    SEMICOLON       reduce using rule 25 (expression -> expression GTE expression .)
+    PLUS            reduce using rule 25 (expression -> expression GTE expression .)
+    MINUS           reduce using rule 25 (expression -> expression GTE expression .)
+    TIMES           reduce using rule 25 (expression -> expression GTE expression .)
+    DIVIDE          reduce using rule 25 (expression -> expression GTE expression .)
+    LT              reduce using rule 25 (expression -> expression GTE expression .)
+    LTE             reduce using rule 25 (expression -> expression GTE expression .)
+    GT              reduce using rule 25 (expression -> expression GTE expression .)
+    GTE             reduce using rule 25 (expression -> expression GTE expression .)
+    NE              reduce using rule 25 (expression -> expression GTE expression .)
+    RPARENT         reduce using rule 25 (expression -> expression GTE expression .)
+
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 19 ]
+  ! TIMES           [ shift and go to state 20 ]
+  ! DIVIDE          [ shift and go to state 21 ]
+  ! LT              [ shift and go to state 22 ]
+  ! LTE             [ shift and go to state 23 ]
+  ! GT              [ shift and go to state 24 ]
+  ! GTE             [ shift and go to state 25 ]
+  ! NE              [ shift and go to state 26 ]
+
+
+state 44
+
+    (26) expression -> expression NE expression .
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    SEMICOLON       reduce using rule 26 (expression -> expression NE expression .)
+    PLUS            reduce using rule 26 (expression -> expression NE expression .)
+    MINUS           reduce using rule 26 (expression -> expression NE expression .)
+    TIMES           reduce using rule 26 (expression -> expression NE expression .)
+    DIVIDE          reduce using rule 26 (expression -> expression NE expression .)
+    LT              reduce using rule 26 (expression -> expression NE expression .)
+    LTE             reduce using rule 26 (expression -> expression NE expression .)
+    GT              reduce using rule 26 (expression -> expression NE expression .)
+    GTE             reduce using rule 26 (expression -> expression NE expression .)
+    NE              reduce using rule 26 (expression -> expression NE expression .)
+    RPARENT         reduce using rule 26 (expression -> expression NE expression .)
+
+  ! PLUS            [ shift and go to state 18 ]
+  ! MINUS           [ shift and go to state 19 ]
+  ! TIMES           [ shift and go to state 20 ]
+  ! DIVIDE          [ shift and go to state 21 ]
+  ! LT              [ shift and go to state 22 ]
+  ! LTE             [ shift and go to state 23 ]
+  ! GT              [ shift and go to state 24 ]
+  ! GTE             [ shift and go to state 25 ]
+  ! NE              [ shift and go to state 26 ]
+
+
+state 45
+
+    (4) statement -> VAR ID ASSIGN . expression SEMICOLON
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 53
+
+state 46
+
+    (5) statement -> IF LPARENT expression . RPARENT block
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    RPARENT         shift and go to state 54
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 19
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+    LT              shift and go to state 22
+    LTE             shift and go to state 23
+    GT              shift and go to state 24
+    GTE             shift and go to state 25
+    NE              shift and go to state 26
+
+
+state 47
+
+    (19) expression -> LPARENT expression RPARENT .
+
+    SEMICOLON       reduce using rule 19 (expression -> LPARENT expression RPARENT .)
+    PLUS            reduce using rule 19 (expression -> LPARENT expression RPARENT .)
+    MINUS           reduce using rule 19 (expression -> LPARENT expression RPARENT .)
+    TIMES           reduce using rule 19 (expression -> LPARENT expression RPARENT .)
+    DIVIDE          reduce using rule 19 (expression -> LPARENT expression RPARENT .)
+    LT              reduce using rule 19 (expression -> LPARENT expression RPARENT .)
+    LTE             reduce using rule 19 (expression -> LPARENT expression RPARENT .)
+    GT              reduce using rule 19 (expression -> LPARENT expression RPARENT .)
+    GTE             reduce using rule 19 (expression -> LPARENT expression RPARENT .)
+    NE              reduce using rule 19 (expression -> LPARENT expression RPARENT .)
+    RPARENT         reduce using rule 19 (expression -> LPARENT expression RPARENT .)
+
+
+state 48
+
+    (6) statement -> WHILE LPARENT expression . RPARENT block
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    RPARENT         shift and go to state 55
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 19
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+    LT              shift and go to state 22
+    LTE             shift and go to state 23
+    GT              shift and go to state 24
+    GTE             shift and go to state 25
+    NE              shift and go to state 26
+
+
+state 49
+
+    (7) statement -> FOR LPARENT statement . SEMICOLON expression SEMICOLON expression RPARENT block
+
+    SEMICOLON       shift and go to state 56
+
+
+state 50
+
+    (8) statement -> RETURN expression SEMICOLON .
+
+    VAR             reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+    IF              reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+    WHILE           reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+    FOR             reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+    RETURN          reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+    FUNCTION        reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+    PRINT           reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+    MINUS           reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+    LPARENT         reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+    NUMBER          reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+    ID              reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+    STRING          reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+    $end            reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+    SEMICOLON       reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+    RBRACE          reduce using rule 8 (statement -> RETURN expression SEMICOLON .)
+
+
+state 51
+
+    (9) statement -> FUNCTION ID LPARENT . RPARENT block
+
+    RPARENT         shift and go to state 57
+
+
+state 52
+
+    (28) statement -> PRINT LPARENT expression . RPARENT SEMICOLON
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    RPARENT         shift and go to state 58
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 19
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+    LT              shift and go to state 22
+    LTE             shift and go to state 23
+    GT              shift and go to state 24
+    GTE             shift and go to state 25
+    NE              shift and go to state 26
+
+
+state 53
+
+    (4) statement -> VAR ID ASSIGN expression . SEMICOLON
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    SEMICOLON       shift and go to state 59
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 19
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+    LT              shift and go to state 22
+    LTE             shift and go to state 23
+    GT              shift and go to state 24
+    GTE             shift and go to state 25
+    NE              shift and go to state 26
+
+
+state 54
+
+    (5) statement -> IF LPARENT expression RPARENT . block
+    (10) block -> . LBRACE statements RBRACE
+    (11) block -> . LBRACE RBRACE
+
+    LBRACE          shift and go to state 61
+
+    block                          shift and go to state 60
+
+state 55
+
+    (6) statement -> WHILE LPARENT expression RPARENT . block
+    (10) block -> . LBRACE statements RBRACE
+    (11) block -> . LBRACE RBRACE
+
+    LBRACE          shift and go to state 61
+
+    block                          shift and go to state 62
+
+state 56
+
+    (7) statement -> FOR LPARENT statement SEMICOLON . expression SEMICOLON expression RPARENT block
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 63
+
+state 57
+
+    (9) statement -> FUNCTION ID LPARENT RPARENT . block
+    (10) block -> . LBRACE statements RBRACE
+    (11) block -> . LBRACE RBRACE
+
+    LBRACE          shift and go to state 61
+
+    block                          shift and go to state 64
+
+state 58
+
+    (28) statement -> PRINT LPARENT expression RPARENT . SEMICOLON
+
+    SEMICOLON       shift and go to state 65
+
+
+state 59
+
+    (4) statement -> VAR ID ASSIGN expression SEMICOLON .
+
+    VAR             reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+    IF              reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+    WHILE           reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+    FOR             reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+    RETURN          reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+    FUNCTION        reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+    PRINT           reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+    MINUS           reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+    LPARENT         reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+    NUMBER          reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+    ID              reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+    STRING          reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+    $end            reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+    SEMICOLON       reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+    RBRACE          reduce using rule 4 (statement -> VAR ID ASSIGN expression SEMICOLON .)
+
+
+state 60
+
+    (5) statement -> IF LPARENT expression RPARENT block .
+
+    VAR             reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+    IF              reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+    WHILE           reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+    FOR             reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+    RETURN          reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+    FUNCTION        reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+    PRINT           reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+    MINUS           reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+    LPARENT         reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+    NUMBER          reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+    ID              reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+    STRING          reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+    $end            reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+    SEMICOLON       reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+    RBRACE          reduce using rule 5 (statement -> IF LPARENT expression RPARENT block .)
+
+
+state 61
+
+    (10) block -> LBRACE . statements RBRACE
+    (11) block -> LBRACE . RBRACE
+    (12) statements -> . statements statement
+    (13) statements -> . statement
+    (3) statement -> . expression SEMICOLON
+    (4) statement -> . VAR ID ASSIGN expression SEMICOLON
+    (5) statement -> . IF LPARENT expression RPARENT block
+    (6) statement -> . WHILE LPARENT expression RPARENT block
+    (7) statement -> . FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block
+    (8) statement -> . RETURN expression SEMICOLON
+    (9) statement -> . FUNCTION ID LPARENT RPARENT block
+    (28) statement -> . PRINT LPARENT expression RPARENT SEMICOLON
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    RBRACE          shift and go to state 67
+    VAR             shift and go to state 4
+    IF              shift and go to state 6
+    WHILE           shift and go to state 8
+    FOR             shift and go to state 9
+    RETURN          shift and go to state 10
+    FUNCTION        shift and go to state 11
+    PRINT           shift and go to state 12
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    statements                     shift and go to state 66
+    statement                      shift and go to state 68
+    expression                     shift and go to state 3
+
+state 62
+
+    (6) statement -> WHILE LPARENT expression RPARENT block .
+
+    VAR             reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+    IF              reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+    WHILE           reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+    FOR             reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+    RETURN          reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+    FUNCTION        reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+    PRINT           reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+    MINUS           reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+    LPARENT         reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+    NUMBER          reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+    ID              reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+    STRING          reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+    $end            reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+    SEMICOLON       reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+    RBRACE          reduce using rule 6 (statement -> WHILE LPARENT expression RPARENT block .)
+
+
+state 63
+
+    (7) statement -> FOR LPARENT statement SEMICOLON expression . SEMICOLON expression RPARENT block
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    SEMICOLON       shift and go to state 69
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 19
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+    LT              shift and go to state 22
+    LTE             shift and go to state 23
+    GT              shift and go to state 24
+    GTE             shift and go to state 25
+    NE              shift and go to state 26
+
+
+state 64
+
+    (9) statement -> FUNCTION ID LPARENT RPARENT block .
+
+    VAR             reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+    IF              reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+    WHILE           reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+    FOR             reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+    RETURN          reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+    FUNCTION        reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+    PRINT           reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+    MINUS           reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+    LPARENT         reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+    NUMBER          reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+    ID              reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+    STRING          reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+    $end            reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+    SEMICOLON       reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+    RBRACE          reduce using rule 9 (statement -> FUNCTION ID LPARENT RPARENT block .)
+
+
+state 65
+
+    (28) statement -> PRINT LPARENT expression RPARENT SEMICOLON .
+
+    VAR             reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+    IF              reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+    WHILE           reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+    FOR             reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+    RETURN          reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+    FUNCTION        reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+    PRINT           reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+    MINUS           reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+    LPARENT         reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+    NUMBER          reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+    ID              reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+    STRING          reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+    $end            reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+    SEMICOLON       reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+    RBRACE          reduce using rule 28 (statement -> PRINT LPARENT expression RPARENT SEMICOLON .)
+
+
+state 66
+
+    (10) block -> LBRACE statements . RBRACE
+    (12) statements -> statements . statement
+    (3) statement -> . expression SEMICOLON
+    (4) statement -> . VAR ID ASSIGN expression SEMICOLON
+    (5) statement -> . IF LPARENT expression RPARENT block
+    (6) statement -> . WHILE LPARENT expression RPARENT block
+    (7) statement -> . FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block
+    (8) statement -> . RETURN expression SEMICOLON
+    (9) statement -> . FUNCTION ID LPARENT RPARENT block
+    (28) statement -> . PRINT LPARENT expression RPARENT SEMICOLON
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    RBRACE          shift and go to state 70
+    VAR             shift and go to state 4
+    IF              shift and go to state 6
+    WHILE           shift and go to state 8
+    FOR             shift and go to state 9
+    RETURN          shift and go to state 10
+    FUNCTION        shift and go to state 11
+    PRINT           shift and go to state 12
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    statement                      shift and go to state 71
+    expression                     shift and go to state 3
+
+state 67
+
+    (11) block -> LBRACE RBRACE .
+
+    VAR             reduce using rule 11 (block -> LBRACE RBRACE .)
+    IF              reduce using rule 11 (block -> LBRACE RBRACE .)
+    WHILE           reduce using rule 11 (block -> LBRACE RBRACE .)
+    FOR             reduce using rule 11 (block -> LBRACE RBRACE .)
+    RETURN          reduce using rule 11 (block -> LBRACE RBRACE .)
+    FUNCTION        reduce using rule 11 (block -> LBRACE RBRACE .)
+    PRINT           reduce using rule 11 (block -> LBRACE RBRACE .)
+    MINUS           reduce using rule 11 (block -> LBRACE RBRACE .)
+    LPARENT         reduce using rule 11 (block -> LBRACE RBRACE .)
+    NUMBER          reduce using rule 11 (block -> LBRACE RBRACE .)
+    ID              reduce using rule 11 (block -> LBRACE RBRACE .)
+    STRING          reduce using rule 11 (block -> LBRACE RBRACE .)
+    $end            reduce using rule 11 (block -> LBRACE RBRACE .)
+    SEMICOLON       reduce using rule 11 (block -> LBRACE RBRACE .)
+    RBRACE          reduce using rule 11 (block -> LBRACE RBRACE .)
+
+
+state 68
+
+    (13) statements -> statement .
+
+    RBRACE          reduce using rule 13 (statements -> statement .)
+    VAR             reduce using rule 13 (statements -> statement .)
+    IF              reduce using rule 13 (statements -> statement .)
+    WHILE           reduce using rule 13 (statements -> statement .)
+    FOR             reduce using rule 13 (statements -> statement .)
+    RETURN          reduce using rule 13 (statements -> statement .)
+    FUNCTION        reduce using rule 13 (statements -> statement .)
+    PRINT           reduce using rule 13 (statements -> statement .)
+    MINUS           reduce using rule 13 (statements -> statement .)
+    LPARENT         reduce using rule 13 (statements -> statement .)
+    NUMBER          reduce using rule 13 (statements -> statement .)
+    ID              reduce using rule 13 (statements -> statement .)
+    STRING          reduce using rule 13 (statements -> statement .)
+
+
+state 69
+
+    (7) statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON . expression RPARENT block
+    (14) expression -> . expression PLUS expression
+    (15) expression -> . expression MINUS expression
+    (16) expression -> . expression TIMES expression
+    (17) expression -> . expression DIVIDE expression
+    (18) expression -> . MINUS expression
+    (19) expression -> . LPARENT expression RPARENT
+    (20) expression -> . NUMBER
+    (21) expression -> . ID
+    (22) expression -> . expression LT expression
+    (23) expression -> . expression LTE expression
+    (24) expression -> . expression GT expression
+    (25) expression -> . expression GTE expression
+    (26) expression -> . expression NE expression
+    (27) expression -> . STRING
+
+    MINUS           shift and go to state 13
+    LPARENT         shift and go to state 7
+    NUMBER          shift and go to state 14
+    ID              shift and go to state 5
+    STRING          shift and go to state 15
+
+    expression                     shift and go to state 72
+
+state 70
+
+    (10) block -> LBRACE statements RBRACE .
+
+    VAR             reduce using rule 10 (block -> LBRACE statements RBRACE .)
+    IF              reduce using rule 10 (block -> LBRACE statements RBRACE .)
+    WHILE           reduce using rule 10 (block -> LBRACE statements RBRACE .)
+    FOR             reduce using rule 10 (block -> LBRACE statements RBRACE .)
+    RETURN          reduce using rule 10 (block -> LBRACE statements RBRACE .)
+    FUNCTION        reduce using rule 10 (block -> LBRACE statements RBRACE .)
+    PRINT           reduce using rule 10 (block -> LBRACE statements RBRACE .)
+    MINUS           reduce using rule 10 (block -> LBRACE statements RBRACE .)
+    LPARENT         reduce using rule 10 (block -> LBRACE statements RBRACE .)
+    NUMBER          reduce using rule 10 (block -> LBRACE statements RBRACE .)
+    ID              reduce using rule 10 (block -> LBRACE statements RBRACE .)
+    STRING          reduce using rule 10 (block -> LBRACE statements RBRACE .)
+    $end            reduce using rule 10 (block -> LBRACE statements RBRACE .)
+    SEMICOLON       reduce using rule 10 (block -> LBRACE statements RBRACE .)
+    RBRACE          reduce using rule 10 (block -> LBRACE statements RBRACE .)
+
+
+state 71
+
+    (12) statements -> statements statement .
+
+    RBRACE          reduce using rule 12 (statements -> statements statement .)
+    VAR             reduce using rule 12 (statements -> statements statement .)
+    IF              reduce using rule 12 (statements -> statements statement .)
+    WHILE           reduce using rule 12 (statements -> statements statement .)
+    FOR             reduce using rule 12 (statements -> statements statement .)
+    RETURN          reduce using rule 12 (statements -> statements statement .)
+    FUNCTION        reduce using rule 12 (statements -> statements statement .)
+    PRINT           reduce using rule 12 (statements -> statements statement .)
+    MINUS           reduce using rule 12 (statements -> statements statement .)
+    LPARENT         reduce using rule 12 (statements -> statements statement .)
+    NUMBER          reduce using rule 12 (statements -> statements statement .)
+    ID              reduce using rule 12 (statements -> statements statement .)
+    STRING          reduce using rule 12 (statements -> statements statement .)
+
+
+state 72
+
+    (7) statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression . RPARENT block
+    (14) expression -> expression . PLUS expression
+    (15) expression -> expression . MINUS expression
+    (16) expression -> expression . TIMES expression
+    (17) expression -> expression . DIVIDE expression
+    (22) expression -> expression . LT expression
+    (23) expression -> expression . LTE expression
+    (24) expression -> expression . GT expression
+    (25) expression -> expression . GTE expression
+    (26) expression -> expression . NE expression
+
+    RPARENT         shift and go to state 73
+    PLUS            shift and go to state 18
+    MINUS           shift and go to state 19
+    TIMES           shift and go to state 20
+    DIVIDE          shift and go to state 21
+    LT              shift and go to state 22
+    LTE             shift and go to state 23
+    GT              shift and go to state 24
+    GTE             shift and go to state 25
+    NE              shift and go to state 26
+
+
+state 73
+
+    (7) statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT . block
+    (10) block -> . LBRACE statements RBRACE
+    (11) block -> . LBRACE RBRACE
+
+    LBRACE          shift and go to state 61
+
+    block                          shift and go to state 74
+
+state 74
+
+    (7) statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .
+
+    VAR             reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+    IF              reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+    WHILE           reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+    FOR             reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+    RETURN          reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+    FUNCTION        reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+    PRINT           reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+    MINUS           reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+    LPARENT         reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+    NUMBER          reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+    ID              reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+    STRING          reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+    $end            reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+    SEMICOLON       reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+    RBRACE          reduce using rule 7 (statement -> FOR LPARENT statement SEMICOLON expression SEMICOLON expression RPARENT block .)
+
